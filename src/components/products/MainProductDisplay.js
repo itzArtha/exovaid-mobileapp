@@ -1,6 +1,6 @@
 import { Text, Image, View, TouchableOpacity } from "react-native";
 import tw from "twrnc";
-const MainProductDisplay = () => {
+const MainProductDisplay = (props) => {
   return (
     <View
       style={tw.style(`my-2 border border-gray-300 rounded-lg`, {
@@ -10,7 +10,7 @@ const MainProductDisplay = () => {
       <Image
         style={tw.style(`w-full h-36 rounded-t-lg`, { resizeMode: `cover` })}
         source={{
-          uri: "https://scontent-cgk1-2.cdninstagram.com/v/t51.2885-15/275732650_1625109894507937_1971669343523193075_n.jpg?stp=dst-jpg_e15_fr_s1080x1080&_nc_ht=scontent-cgk1-2.cdninstagram.com&_nc_cat=101&_nc_ohc=tJDHuBQ9UwIAX8cdxjq&edm=ALQROFkBAAAA&ccb=7-4&ig_cache_key=Mjc5MjA0MDE3MzM2Nzg1NDkwNw%3D%3D.2-ccb7-4&oh=00_AT_deNhuHEqquiht0zn8x-Zb6bPh587GuxX2AzQxKhf3qw&oe=62465CA0&_nc_sid=30a2ef",
+          uri: "https://i.ibb.co/HPbhQvY/IMG-0363.jpg",
         }}
       />
       <View style={tw`p-2`}>
@@ -22,6 +22,9 @@ const MainProductDisplay = () => {
           </Text>
         </View>
         <TouchableOpacity
+          onPress={() => {
+            props.navigation.navigate("Product");
+          }}
           style={tw`h-10 w-full bg-blue-600 rounded-lg items-center justify-center`}
         >
           <Text style={tw`text-base text-white font-medium`}>Lihat Detail</Text>

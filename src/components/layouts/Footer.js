@@ -1,9 +1,16 @@
 import { Image, Text, View } from "react-native";
-
 import tw from "twrnc";
+import {
+  Collapse,
+  CollapseHeader,
+  CollapseBody,
+  AccordionList,
+} from "accordion-collapse-react-native";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+
 const Footer = () => {
   return (
-    <View style={tw`mt-20`}>
+    <View style={tw`my-20`}>
       <View style={tw`p-4 bg-blue-50`}>
         <View style={tw`flex-row flex-wrap`}>
           <Image
@@ -22,9 +29,95 @@ const Footer = () => {
             ever since the 1500s
           </Text>
         </View>
+        <View style={tw`bg-white mt-8`}>
+          <Collapse
+            style={tw`py-2 px-4 border border-gray-200 border-b-0 rounded-t`}
+          >
+            <CollapseHeader>
+              <View style={tw`flex-row justify-between`}>
+                <View>
+                  <Text style={tw`font-medium text-center text-base`}>
+                    Layanan kami
+                  </Text>
+                </View>
+                <View>
+                  <Text style={tw`font-medium text-center text-base`}>
+                    <MaterialCommunityIcons
+                      name="arrow-down"
+                      color={"#000000"}
+                      size={18}
+                    />
+                  </Text>
+                </View>
+              </View>
+            </CollapseHeader>
+            <CollapseBody style={tw`mt-2`}>
+              <Text style={tw`font-thin text-base`}>Kebijakan</Text>
+              <Text style={tw`font-thin text-base`}>Privasi</Text>
+              <Text style={tw`font-thin text-base`}>Pertanyaan</Text>
+            </CollapseBody>
+          </Collapse>
+          <Collapse style={tw`py-2 px-4 border border-gray-200 border-b-0`}>
+            <CollapseHeader>
+              <View style={tw`flex-row justify-between`}>
+                <View>
+                  <Text style={tw`font-medium text-center text-base`}>
+                    Lainnya
+                  </Text>
+                </View>
+                <View>
+                  <Text style={tw`font-medium text-center text-base`}>
+                    <MaterialCommunityIcons
+                      name="arrow-down"
+                      color={"#000000"}
+                      size={18}
+                    />
+                  </Text>
+                </View>
+              </View>
+            </CollapseHeader>
+            <CollapseBody style={tw`mt-2`}>
+              <Text style={tw`font-thin text-base`}>Tentang kami</Text>
+              <Text style={tw`font-thin text-base`}>Karir</Text>
+              <Text style={tw`font-thin text-base`}>Blog</Text>
+              <Text style={tw`font-thin text-base`}>Unggah karya</Text>
+            </CollapseBody>
+          </Collapse>
+          <Collapse style={tw`py-2 px-4 border border-gray-200 rounded-b`}>
+            <CollapseHeader>
+              <View style={tw`flex-row justify-between`}>
+                <View>
+                  <Text style={tw`font-medium text-center text-base`}>
+                    Hubungi kami
+                  </Text>
+                </View>
+                <View>
+                  <Text style={tw`font-medium text-center text-base`}>
+                    <MaterialCommunityIcons
+                      name="arrow-down"
+                      color={"#000000"}
+                      size={18}
+                    />
+                  </Text>
+                </View>
+              </View>
+            </CollapseHeader>
+            <CollapseBody style={tw`mt-2`}>
+              <Text style={tw`font-thin text-base`}>info@exova.com</Text>
+              <Text style={tw`font-thin text-base`}>
+                Denpasar, Bali, Indonesia
+              </Text>
+            </CollapseBody>
+          </Collapse>
+        </View>
       </View>
       <View style={tw`mt-2 mb-12`}>
         <Text style={tw`text-base text-center font-normal text-gray-400`}>
+          <MaterialCommunityIcons
+            name="copyright"
+            color={"rgba(0,0,0,0.28)"}
+            size={18}
+          />{" "}
           2022 Exova Indonesia - All right reserved.
         </Text>
       </View>

@@ -1,22 +1,36 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "./src/user/Home";
+import DetailProduct from "./src/user/explore/DetailProduct";
+import Menu from "./src/components/layouts/Menu";
+import { LeftButton, RightButton } from "./src/components/layouts/Header";
 
 export default function App() {
-  const Stack = createNativeStackNavigator();
+  const HomeStack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator
+      <HomeStack.Navigator
+        initialRouteName="Menu"
         screenOptions={{
-          headerShown: false,
-          contentStyle: { backgroundColor: "#ffffff" },
+          headerTitle: "",
+          headerBackTitle: "",
+          // headerLeft: (props) => <LeftButton {...props} />,
+          headerRight: (props) => <RightButton {...props} />,
+          headerStyle: {
+            marginRight: 10,
+            marginLeft: 10,
+          },
+          contentStyle: {
+            backgroundColor: "#fff",
+          },
         }}
-        initialRouteName="Home"
       >
-        <Stack.Screen name="Home" component={Home} />
-      </Stack.Navigator>
+        <HomeStack.Screen
+          name="Menu"
+          options={{ headerShown: false }}
+          component={Menu}
+        />
+        <HomeStack.Screen name="Product" component={DetailProduct} />
+      </HomeStack.Navigator>
     </NavigationContainer>
   );
 }
