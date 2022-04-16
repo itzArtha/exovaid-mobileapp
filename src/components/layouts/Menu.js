@@ -3,8 +3,8 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { StyleSheet, View, Button, TouchableOpacity } from "react-native";
 import Home from "../../user/Home";
 import Products from "../../user/explore/Products";
-import Profile from "../../user/Profile";
-import Chat from "../../user/chats/Chat";
+import Profile from "../../user/profiles/Profile";
+import ChatList from "../../user/chats/ChatList";
 import { RightButton, LeftButton } from "./Header";
 
 const Menu = () => {
@@ -101,10 +101,10 @@ const Menu = () => {
         }}
       />
       <Tab.Screen
-        name="Chat"
-        component={Chat}
+        name="ChatList"
+        component={ChatList}
         options={{
-          tabBarLabel: "Chat",
+          tabBarLabel: "ChatList",
           tabBarBadge: 3,
           tabBarBadgeStyle: { backgroundColor: "#226FEE" },
           tabBarIcon: ({ focused, color, size }) => (

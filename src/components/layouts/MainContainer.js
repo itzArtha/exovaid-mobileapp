@@ -11,26 +11,29 @@ import {
   Text,
 } from "react-native";
 import Footer from "./Footer";
+import { NativeBaseProvider } from "native-base";
 
 const MainContainer = ({ children, floatingComponent }) => {
   return (
-    <View style={tw`p-4 bg-white`}>
-      <StatusBar animated={true} barStyle={"dark-content"} hidden={false} />
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-      >
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <ScrollView
-            showsVerticalScrollIndicator={false}
-            showsHorizontalScrollIndicator={false}
-          >
-            {children}
-            <Footer />
-          </ScrollView>
-        </TouchableWithoutFeedback>
-      </KeyboardAvoidingView>
-      {floatingComponent}
-    </View>
+    <NativeBaseProvider>
+      <View style={tw`px-4 bg-white`}>
+        <StatusBar animated={true} barStyle={"dark-content"} hidden={false} />
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
+          <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              showsHorizontalScrollIndicator={false}
+            >
+              {children}
+              <Footer />
+            </ScrollView>
+          </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
+        {floatingComponent}
+      </View>
+    </NativeBaseProvider>
   );
 };
 export default MainContainer;

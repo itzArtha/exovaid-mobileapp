@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DetailProduct from "./src/user/explore/DetailProduct";
 import Menu from "./src/components/layouts/Menu";
 import { LeftButton, RightButton } from "./src/components/layouts/Header";
+import PublicProfile from "./src/freelancer/PublicProfile";
+import Chat from "./src/user/chats/Chat";
 
 export default function App() {
   const HomeStack = createNativeStackNavigator();
@@ -29,7 +31,9 @@ export default function App() {
           options={{ headerShown: false }}
           component={Menu}
         />
+        <HomeStack.Screen name="Chat" component={Chat} />
         <HomeStack.Screen name="Product" component={DetailProduct} />
+        <HomeStack.Screen name="Freelancer" component={PublicProfile} />
       </HomeStack.Navigator>
     </NavigationContainer>
   );
