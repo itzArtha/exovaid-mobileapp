@@ -6,6 +6,9 @@ import Products from "../../user/explore/Products";
 import Profile from "../../user/profiles/Profile";
 import ChatList from "../../user/chats/ChatList";
 import { RightButton, LeftButton } from "./Header";
+import Nearby from "../../user/nearby/Dashboard";
+import Daftar from "../../auth/Daftar";
+import Login from "../../auth/Login";
 
 const Menu = () => {
   const Tab = createBottomTabNavigator();
@@ -87,7 +90,7 @@ const Menu = () => {
       />
       <Tab.Screen
         name="Nearby"
-        component={Products}
+        component={Nearby}
         options={{
           tabBarIcon: ({ focused, color, size }) => (
             <MaterialCommunityIcons
@@ -104,7 +107,7 @@ const Menu = () => {
         name="ChatList"
         component={ChatList}
         options={{
-          tabBarLabel: "ChatList",
+          tabBarLabel: "Chat",
           tabBarBadge: 3,
           tabBarBadgeStyle: { backgroundColor: "#226FEE" },
           tabBarIcon: ({ focused, color, size }) => (
@@ -116,7 +119,7 @@ const Menu = () => {
           ),
         }}
       />
-      <Tab.Screen
+      {/*      <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
@@ -127,6 +130,16 @@ const Menu = () => {
               color={color}
               size={size}
             />
+          ),
+        }}
+      />*/}
+      <Tab.Screen
+        name="Login"
+        component={Login}
+        options={{
+          tabBarLabel: "Masuk",
+          tabBarIcon: ({ focused, color, size }) => (
+            <MaterialCommunityIcons name="login" color={color} size={size} />
           ),
         }}
       />

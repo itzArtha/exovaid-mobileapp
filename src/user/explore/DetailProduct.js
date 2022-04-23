@@ -41,6 +41,7 @@ const DetailProduct = ({ navigation }) => {
 
   return (
     <MainContainer
+      navigation={navigation}
       floatingComponent={
         <View style={tw`absolute bottom-10 left-10 right-10`}>
           <MainButton>Chat Freelancer</MainButton>

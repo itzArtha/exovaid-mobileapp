@@ -9,7 +9,7 @@ import Partners from "../components/about/Partners";
 import MainContainer from "../components/layouts/MainContainer";
 const Home = ({ navigation }) => {
   return (
-    <MainContainer>
+    <MainContainer navigation={navigation}>
       <View>
         <Image
           style={tw`w-full h-60`}

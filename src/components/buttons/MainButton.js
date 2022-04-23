@@ -5,13 +5,13 @@ const MainButton = (props) => {
   return (
     <TouchableOpacity
       onPress={props.onPress}
-      style={tw`h-10 w-full ${
+      style={tw`my-1 h-10 w-full ${
         props.color ? props.color : "bg-blue-500"
-      } rounded-lg items-center justify-center`}
+      } rounded-lg items-center justify-center ${props.border}`}
     >
       <Text
         style={tw`text-base ${
-          props.color ? "text-black" : "text-white"
+          props.color === "bg-white" ? "text-black" : "text-white"
         } font-medium`}
       >
         {props.children}

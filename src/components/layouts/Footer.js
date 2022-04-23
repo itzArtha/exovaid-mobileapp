@@ -1,4 +1,4 @@
-import { Image, Text, View } from "react-native";
+import { Image, TouchableOpacity, Text, View } from "react-native";
 import tw from "twrnc";
 import {
   Collapse,
@@ -8,7 +8,7 @@ import {
 } from "accordion-collapse-react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
-const Footer = () => {
+const Footer = ({ navigation }) => {
   return (
     <View style={tw`my-20`}>
       <View style={tw`p-4 bg-blue-50`}>
@@ -77,7 +77,13 @@ const Footer = () => {
               </View>
             </CollapseHeader>
             <CollapseBody style={tw`mt-2`}>
-              <Text style={tw`font-thin text-base`}>Tentang kami</Text>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("AboutUs");
+                }}
+              >
+                <Text style={tw`font-thin text-base`}>Tentang kami</Text>
+              </TouchableOpacity>
               <Text style={tw`font-thin text-base`}>Karir</Text>
               <Text style={tw`font-thin text-base`}>Blog</Text>
               <Text style={tw`font-thin text-base`}>Unggah karya</Text>

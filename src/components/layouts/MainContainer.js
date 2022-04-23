@@ -13,10 +13,15 @@ import {
 import Footer from "./Footer";
 import { NativeBaseProvider } from "native-base";
 
-const MainContainer = ({ children, floatingComponent }) => {
+const MainContainer = ({
+  children,
+  floatingComponent,
+  navigation,
+  footer = true,
+}) => {
   return (
     <NativeBaseProvider>
-      <View style={tw`px-4 bg-white`}>
+      <View style={tw`px-4 ${footer ? "" : "h-full"} bg-white`}>
         <StatusBar animated={true} barStyle={"dark-content"} hidden={false} />
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -27,7 +32,7 @@ const MainContainer = ({ children, floatingComponent }) => {
               showsHorizontalScrollIndicator={false}
             >
               {children}
-              <Footer />
+              {footer ? <Footer navigation={navigation} /> : null}
             </ScrollView>
           </TouchableWithoutFeedback>
         </KeyboardAvoidingView>

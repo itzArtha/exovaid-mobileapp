@@ -2,11 +2,17 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import { TouchableOpacity } from "react-native";
 import { useToast } from "native-base";
 import { useState } from "react";
+import * as Haptics from "expo-haptics";
 
 const WishlistIcon = (props) => {
   const toast = useToast();
   const [wishlist, setWishlist] = useState(props.isWishlist);
   const Toast = (title) => {
+    if (!wishlist) {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+    } else {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Error);
+    }
     toast.show({
       title: title,
       placement: "top",
