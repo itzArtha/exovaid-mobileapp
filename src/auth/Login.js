@@ -4,8 +4,13 @@ import MainTextInput from "../components/MainTextInput";
 import MainButton from "../components/buttons/MainButton";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import TextButton from "../components/buttons/TextButton";
+import { useState } from "react";
 
 const Login = ({ navigation }) => {
+  const [inputData, setInputData] = useState({
+    email: "",
+    password: "",
+  });
   return (
     <View style={tw`px-4 pt-4 pb-32 bg-white`}>
       <ScrollView
@@ -19,8 +24,20 @@ const Login = ({ navigation }) => {
           </Text>
         </View>
         <View style={tw`mt-12 mb-4`}>
-          <MainTextInput />
-          <MainTextInput />
+          <MainTextInput
+            onChangeText={(value) => {
+              setInputData({ ...inputData, email: value });
+            }}
+            label={"Email"}
+            errorMessage={"Kamu harus memasukan email"}
+          />
+          <MainTextInput
+            onChangeText={(value) => {
+              setInputData({ ...inputData, password: value });
+            }}
+            errorMessage={""}
+            label={"Password"}
+          />
           <View style={tw`mt-8`}>
             <MainButton>Masuk</MainButton>
           </View>

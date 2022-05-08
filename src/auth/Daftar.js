@@ -4,7 +4,19 @@ import tw from "twrnc";
 import MainButton from "../components/buttons/MainButton";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import TextButton from "../components/buttons/TextButton";
+import { useState } from "react";
 const Daftar = ({ navigation }) => {
+  const [inputData, setInputData] = useState({
+    namaLengkap: "",
+    email: "",
+    password: "",
+    passwordConfirmation: "",
+  });
+
+  const handleValidation = () => {};
+
+  const handleDaftar = () => {};
+
   return (
     <View style={tw`p-4 bg-white`}>
       <ScrollView
@@ -18,11 +30,31 @@ const Daftar = ({ navigation }) => {
           </Text>
         </View>
         <View style={tw`mt-12 mb-4`}>
-          <MainTextInput />
-          <MainTextInput />
-          <MainTextInput />
-          <MainTextInput />
-          <MainTextInput />
+          <MainTextInput
+            onChangeText={(value) => {
+              setInputData({ ...inputData, namaLengkap: value });
+            }}
+            errorMessage={"Jangan lupa isi nama kawan"}
+            label={"Nama Lengkap"}
+          />
+          <MainTextInput
+            onChangeText={(value) => {
+              setInputData({ ...inputData, email: value });
+            }}
+            label={"Email"}
+          />
+          <MainTextInput
+            onChangeText={(value) => {
+              setInputData({ ...inputData, password: value });
+            }}
+            label={"Password"}
+          />
+          <MainTextInput
+            onChangeText={(value) => {
+              setInputData({ ...inputData, passwordConfirmation: value });
+            }}
+            label={"Ulangi Password"}
+          />
           <View style={tw`mt-8`}>
             <MainButton>Buat akun</MainButton>
           </View>
